@@ -2,11 +2,16 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import json
+from pathlib import Path
 
+config_path = Path(__file__).resolve().parent
+config_file = open(os.path.join(config_path, 'config.json'))
+config_json = json.load(config_file)
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', config_json['ENV'])
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

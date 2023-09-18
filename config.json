@@ -1,0 +1,8 @@
+{
+    "ENV": "src.settings.conf.dev",
+    "APPS": [
+        "sslserver",
+        "rest_framework",
+        "corsheaders"
+    ]
+}
